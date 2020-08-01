@@ -92,7 +92,7 @@ console.log(global); //2 -> acessa a que vazou do if
 	-  Sofrem hoisting (são elevadas) para o topo do bloco que foram definidas → porém não é atribuido o valor de undefined como acontece com var  → continuam não inicializadas e dão erro caso sejam chamadas antes de suas declarações.
 	- A grande diferença entre as duas é que consts não podem ser reatribuídas enquanto lets sim.
 
-```javacript
+```javascript
 function name() {
 	console.log(name); // ❌ retorna erro porque ainda não foi inicializada
 	let name = 'isadora';
