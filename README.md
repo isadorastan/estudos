@@ -6,7 +6,7 @@ Neste repositório deixarei por escrito algumas questões teóricas que são cha
 - [Hoisting](#hosting)
 - [Scope](#scope)
 - [Nested Scopes](#nested-scopes)
-- [Variables](#variables)
+- [Variables (let, const, var) ](#variables)
 
 
 #### <a name="hoisting"></a> Hoisting
