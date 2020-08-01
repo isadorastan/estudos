@@ -54,9 +54,10 @@ Quando criamos outra função dentro da função foo, estamos colocando outra ca
 
 ### <a name="variables"></a> Var, let e const
 - Var 
-	-    é içada
-	-   tem escopo abrangente → se for declarada dentro de um bloco → vaza do escopo
-	-   escopo global e função → n tem escopo de bloco
+	-   É içada
+	-   Tem escopo abrangente → se for declarada dentro de um bloco → vaza do escopo
+	-   Escopo global e função → n tem escopo de bloco
+	-   Praticamente não são mais usadas em aplicações modernas devidos aos problemas de escopo → **substituídas por const e lets**
   
 ```javascript
 function foo (a) {
@@ -88,7 +89,7 @@ console.log(global); //2 -> acessa a que vazou do if
 ``` 
 
 - Let e Const
-	-   Tem escopo de **bloco** e de função
+	-  Tem escopo de **bloco** e de função
 	-  Sofrem hoisting (são elevadas) para o topo do bloco que foram definidas → porém não é atribuido o valor de undefined como acontece com var  → continuam não inicializadas e dão erro caso sejam chamadas antes de suas declarações.
 	- A grande diferença entre as duas é que consts não podem ser reatribuídas enquanto lets sim.
 
