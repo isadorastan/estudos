@@ -3,10 +3,14 @@
 Neste repositório deixarei por escrito algumas questões teóricas que são chatas, porém necessárias para a evolução profissional 🤪
 
 ### JS 
+- [Hoisting](#hosting)
+- [Scope](#scope)
+- [Nested Scopes](#nested-scopes)
+- [Variables](#variables)
 
-#### Hoisting
 
-Hoisting é o içamento de funções e variáveis para o topo do código, declarando variáveis e funções em memória e permitindo que você use uma função/variável antes mesmo de declara-las.
+#### <a name="hoisting"></a> Hoisting
+Hoisting é o içamento de funções e variáveis para o topo do código, isso declara as variáveis e funções em memória e permite que você use uma função/variável antes mesmo de declara-la.
 
     sayHello();
     // a função foi chamada antes de ser declarada
@@ -15,14 +19,15 @@ Hoisting é o içamento de funções e variáveis para o topo do código, declar
 	    console.log("Say Hello");
 	}
 
-O mesmo acontece com variáveis, as quais podem ser inicializadas antes de serem declaradas. Porém, o js eleva somente a declaração não a inicialização.
+O mesmo é acontece para variáveis, as quais podem ser inicializadas antes de serem declaradas. Porém, o js eleva somente a declaração não a inicialização.
 
       console.log(num); // undefined -> nesse caso num é undefined porque só foi declarada
       num = 6;
       console.log(num); // 6 -> agora num já foi inicializada
       var num;
-      
-#### Scope
+
+
+####  <a name="scope"></a>Scope
 Escopo é a acessibilidade de objetos, variáveis e funções em diferentes partes do código.
 
 - Escopo Global
@@ -34,8 +39,7 @@ Escopo é a acessibilidade de objetos, variáveis e funções em diferentes part
 - Escopo de bloco
 	- Não existia no JS escopo de bloco. Ou seja, for whiles e ifs não tinham escopo próprio. Porém com o ECMAScript 6 foi possível criar escopos de bloco usando as variáveis **let** e **const**, que são **acessíveis somente dentro do bloco.**
 
-
-#### Nested Scopes
+#### <a name="nested-scopes"></a> Nested Scopes
 
 Todo o escopo é fechado para acessos externos, de forma que escopos superiores não conseguem acessar escopos internos, mas o contrário é permitido.
 
@@ -48,7 +52,7 @@ Todo o escopo é fechado para acessos externos, de forma que escopos superiores 
 Quando criamos outra função dentro da função foo, estamos colocando outra caixa dentro do escopo da função, criando o que é chamado de “nested scopes”, ou escopos aninhados.
 
 
-### Var, let e const
+### <a name="variables"></a> Var, let e const
 - Var 
 	-    é içada
 	-   tem escopo abrangente → se for declarada dentro de um bloco → vaza do escopo
