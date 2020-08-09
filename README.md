@@ -3,10 +3,17 @@
 Neste repositório deixarei por escrito algumas questões teóricas que são chatas, porém necessárias para a evolução profissional 🤪
 
 ### JS 
+- [Como funciona o JS](#how-js-works)
 - [Hoisting](#hosting)
 - [Scope](#scope)
 - [Nested Scopes](#nested-scopes)
 - [Variables (let, const, var) ](#variables)
+
+#### <a name="how-js-works"></a> Como funciona o JS
+O google chrome usa a engine v8 (open source escrita em c++) . A engine v8 serve para interpretar um código javascript. 
+A v8 foi projetada para aumentar a perfomance de execução do JS dentro de navegadores, ele compila código JS em código de maquina ao invés de usar um interpretador. Ele compila de js para código de máquina em tempo de execução, implementando um compilador JIT (just in time).
+
+```JS => c++ => Assembly => Machine Code ```
 
 
 #### <a name="hoisting"></a> Hoisting
