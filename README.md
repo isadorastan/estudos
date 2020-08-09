@@ -33,12 +33,12 @@ Suporte ES:
 **NOTA:**  Observe sempre as  **versões do browser**  e quais  **métodos**  são  **compatíveis**  no  **mesmo**.
 
 **Se nem todos os browsers suportam o ES6 como fazemos?**
-por isso isamos transpilers como o BABEL. Ele transforma seu código ES6 em ES5 (que a maioria dos browsers dá suporte)
+por isso usamos transpilers como o BABEL. Ele transforma seu código ES6 em ES5 (que a maioria dos browsers dá suporte)
 
 fontes:
-[https://medium.com/@matheusml/o-guia-do-es6-tudo-que-voc%C3%AA-precisa-saber-8c287876325f](https://medium.com/@matheusml/o-guia-do-es6-tudo-que-voc%C3%AA-precisa-saber-8c287876325f)
-[https://pt.wikipedia.org/wiki/Interpretador_de_JavaScript](https://pt.wikipedia.org/wiki/Interpretador_de_JavaScript)
-[https://pt.stackoverflow.com/questions/383174/o-ecmascript-6-%C3%A9-suportado-pelos-browsers-atuais](https://pt.stackoverflow.com/questions/383174/o-ecmascript-6-%C3%A9-suportado-pelos-browsers-atuais)
+- [https://medium.com/@matheusml/o-guia-do-es6-tudo-que-voc%C3%AA-precisa-saber-8c287876325f](https://medium.com/@matheusml/o-guia-do-es6-tudo-que-voc%C3%AA-precisa-saber-8c287876325f)
+- [https://pt.wikipedia.org/wiki/Interpretador_de_JavaScript](https://pt.wikipedia.org/wiki/Interpretador_de_JavaScript)
+- [https://pt.stackoverflow.com/questions/383174/o-ecmascript-6-%C3%A9-suportado-pelos-browsers-atuais](https://pt.stackoverflow.com/questions/383174/o-ecmascript-6-%C3%A9-suportado-pelos-browsers-atuais)
 
 #### <a name="hoisting"></a> Hoisting
 Hoisting é o içamento de funções e variáveis para o topo do código, isso declara as variáveis e funções em memória e permite que você use uma função/variável antes mesmo de declara-la.
