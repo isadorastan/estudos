@@ -10,6 +10,10 @@ Neste repositório deixarei por escrito algumas questões teóricas que são cha
 - [Nested Scopes](#nested-scopes)
 - [Variables](#variables)
 - [ES6 Features](#es6-features)
+- [Pure Functions](#pure-functions)
+- [Closure](#closure)
+- [Currying](#currying)
+- [Higher-Order Functions](#higher-order-functions)
 
 #### <a name="how-js-works"></a> Como funciona o JS
 O google chrome usa a engine v8 (open source escrita em c++) . A engine v8 serve para interpretar um código javascript. 
@@ -153,3 +157,127 @@ num = 8; // ❌ Não pode ser reatribuída porque é const
 - Es6 Modules (import, export)
 
 fonte: [https://medium.com/@matheusml/o-guia-do-es6-tudo-que-voc%C3%AA-precisa-saber-8c287876325f](https://medium.com/@matheusml/o-guia-do-es6-tudo-que-voc%C3%AA-precisa-saber-8c287876325f)
+
+#### <a name="pure-functions"></a> Pure Functions
+- Dada a mesma entrada, vai sempre retornar a mesma saída
+- Não produz nenhum efeito colateral
+```javascript
+functions pureFunction(a,b) {
+	return a + b;
+} 
+pureFunction(1,2) // retorna 3
+ ```
+ - Retorna sempre o mesmo valor baseado na entrada e não manipula nenhuma variável de fora.
+ - Porque usar?
+	 - Mais fáceis de implementar e testar
+	 - Código mais limpo, prático e de simples manutenção
+ 
+#### <a name="currying"></a> Currying
+```Currying é o nome dado à técnica de dividimos uma função que recebe vários argumentos numa série de funções cada uma lidando com **um** argumento da função inicial.```
+
+- Forma de injetar os parametros de forma parcial. 
+- É uma função normal
+- Faz parte de programação funcional
+- Transforma uma função com múltiplos argumentos em uma sequencia de nested functions (função aninhada). Ela retorna uma função que espera os próximos argumentos.
+
+```javascript
+function somap(a) {
+    return function(b) {
+        return a+b
+    }
+}
+
+// Uso:
+var somadois = somap(2);
+somadois(3); // 5
+ ```
+também podemos executa-lá de uma vez fazendo:
+```somap(2)(3) // retorna 5 ```
+
+também pode ser escrita usando arrow functions: 
+```javascript
+const myFunction = valor1 => valor2 => valor3 => {
+	return valor1 + valor2 + valor3;
+}
+
+console.log(myFunction(1)) // retorna a função esperando o segundo parametro
+console.log(myFunction(2)(4)(3)) // retorna 8
+```
+
+#### <a name="higher-order-functions"></a> Higher-Order Functions
+- É uma função que **recebe como parâmetro** outra função e/ou que **retorna** uma função
+- Ex: map, reduce, filter..
+ 
+```javascript
+// calculate recebe como parametro uma função
+// calculate retorna uma função
+// Higher-Order function
+var calculate = function(fn, x, y) {
+	return fn(x, y);
+};
+
+var sum = function(x, y) {
+	return x + y;
+};
+
+var mult = function(x, y) {
+	return x * y;
+};
+
+calculate(sum, 2, 5); // 7
+calculate(mult, 2, 5); // 10
+ ```
+usando ES6:
+```javascript
+const calculate = (fn, x, y) => fn(x,y);
+const sum = (x, y) => x + y;
+const mult = (x, y) => x * y;
+calculate(sum, 2, 5); // 7
+calculate(mult, 2, 5); // 10
+ ```
+
+#### <a name="closure"></a> Closure
+- Closure é a forma de fazer com que as variáveis dentro de uma função sejam **privadas** e **persistentes**.
+- Se refere à forma como funções definidas dentro de um "contexto léxico" (i.e. o corpo de uma função, um bloco, um arquivo fonte) acessam variáveis definidas nesse contexto.
+
+```javascript
+function pai(){  
+   var x = 1;  
+   function filho(){  
+	  console.log(x);  
+	  x++;  
+   }  
+   return filho;  
+}  
+  
+var contador = pai();  
+contador(); // 1  
+contador(); // 2  
+contador(); // 3
+```
+```A função filho possui uma referência ao escopo da função pai, e a essa referência nós damos o nome de closure.```
+
+- Módulos são estruturas de código que fazem bom uso das _closures_, vamos a um exemplo que apresenta bem seu funcionamento:
+```javascript
+ function ModuloMatematico() {       
+    var x = 0;      
+    function somaUm() {  
+        x++;          
+        console.log(x);       
+    }
+    function subtraiUm() {           
+        x--;  
+        console.log(x);       
+    }
+	return {           
+        somaUm: somaUm,           
+        subtraiUm: subtraiUm       
+    };   
+}
+var teste = ModuloMatematico();    
+teste.somaUm();     // 1   
+teste.somaUm();     // 2  
+teste.somaUm();     // 3  
+teste.subtraiUm();  // 2
+```
+Nesse exemplo, não seria possível acessar diretamente X, porém usando closures é possível fazer isso.
