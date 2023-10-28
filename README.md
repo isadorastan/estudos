@@ -45,7 +45,9 @@ fontes:
 - [https://pt.wikipedia.org/wiki/Interpretador_de_JavaScript](https://pt.wikipedia.org/wiki/Interpretador_de_JavaScript)
 - [https://pt.stackoverflow.com/questions/383174/o-ecmascript-6-%C3%A9-suportado-pelos-browsers-atuais](https://pt.stackoverflow.com/questions/383174/o-ecmascript-6-%C3%A9-suportado-pelos-browsers-atuais)
 
-## <a name="operators"></a>  Operadores de comparação
+#### <a name="operators"></a> Operadores
+
+## Operadores de comparação
 - Igual `==`  
 - Não igual `!=`
 - Estritamente igual `===`
