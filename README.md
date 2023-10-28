@@ -55,6 +55,18 @@ fontes:
 - Maior que `>` e maior igual 	que `>=`
 - Menor que `<` e menor igual que `<=`
 
+```javascript
+const maioridade = 18;
+const idade = 16;
+console.log(idade >= maioridade); // false
+
+1 == '1' // true
+1 === '1' // false
+
+1 != '1' // true
+1 !== '1' // false
+```
+
 ## Operadores aritméticos
 ### Módulo `%`
 ```javascript
@@ -190,6 +202,10 @@ let result = A || B || C; // 10 || 0 || 'a'
 ### Precedência lógica do operador
 Quando usamos vários operadores em uma mesma expressão, o JS avalia em uma ordem específica.
 
+- `* / %` multiplicação, divisão, resto
+- `+ - ` adição e subtração
+- `< <= > >=` relacional
+- `== != === !==` igualdade
 - `!` não
 - `&&` e
 - `||` ou
