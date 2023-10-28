@@ -63,8 +63,8 @@ console.log(idade >= maioridade); // false
 1 == '1' // true
 1 === '1' // false
 
-1 != '1' // true
-1 !== '1' // false
+1 != '1' // false
+1 !== '1' // true
 ```
 
 ## Operadores aritméticos
