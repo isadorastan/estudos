@@ -136,10 +136,10 @@ console.log(!required) // false
 let x = 10;
 console.log(!!x) // true	
 ```
-###  `||` Operador lógico OU (OR)
+### `||` Operador lógico OU (OR)
 Retorna false somente se os dois valores forem falsos, se não, retorna true;
 
-| `a`| `b` |`a || b` |
+| `a`| `b` |`a ou b` |
 |---|----|----|
 |true |true | true|
 |true |false | true|
