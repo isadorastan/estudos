@@ -5,6 +5,7 @@ Neste repositório deixarei por escrito algumas questões teóricas que são cha
 ### JS 
 - [Como funciona o JS](#how-js-works)
 - [O que é o JS](#what-is-js)
+- [Operadores](#operators)
 - [Hoisting](#hosting)
 - [Scope](#scope)
 - [Nested Scopes](#nested-scopes)
@@ -43,6 +44,164 @@ fontes:
 - [https://medium.com/@matheusml/o-guia-do-es6-tudo-que-voc%C3%AA-precisa-saber-8c287876325f](https://medium.com/@matheusml/o-guia-do-es6-tudo-que-voc%C3%AA-precisa-saber-8c287876325f)
 - [https://pt.wikipedia.org/wiki/Interpretador_de_JavaScript](https://pt.wikipedia.org/wiki/Interpretador_de_JavaScript)
 - [https://pt.stackoverflow.com/questions/383174/o-ecmascript-6-%C3%A9-suportado-pelos-browsers-atuais](https://pt.stackoverflow.com/questions/383174/o-ecmascript-6-%C3%A9-suportado-pelos-browsers-atuais)
+
+## <a name="operators"></a>  Operadores de comparação
+- Igual `==`  
+- Não igual `!=`
+- Estritamente igual `===`
+- Estritamente não igual `!==`
+- Maior que `>` e maior igual 	que `>=`
+- Menor que `<` e menor igual que `<=`
+
+## Operadores aritméticos
+### Módulo `%`
+```javascript
+// resto da divisão
+const result = 12%5 // result = 2
+```
+### Incremento `++`
+```javascript
+// prefixado
+let x = 3;
+++x // retorna 4
+
+// posfixado
+let x = 3
+x++ // retorna 3 depois define x como 4
+```
+### Decremento `--`
+```javascript
+// prefixado
+let x = 3;
+--x // retorna 2
+
+// posfixado
+let x = 3
+x-- // retorna 2 depois define x como 2
+```
+### Negação `-`
+```javascript
+let x = 3;
+-x // retorna -3
+```
+### Adição `+`
+```javascript
+// converte um operando em número, sempre que possível
++"3" // retorna 3
++true // retorna 1
+```
+### Exponencial `**`
+```javascript
+ let x = 2**3 // retorna 8
+```
+
+## Operadores de atribuição
+### Atribuição
+```javascript
+	x = y
+```
+ ### Atribuição matemáticos
+```javascript
+	x += y // x = x + y (adição)
+	x -= y // x = x - y (subtração)
+	x *= y // x = x * y (multiplicação)
+	x /= y // x = x / y (divisão)
+	x %= y // x = x % y (resto)
+	x **= y // x = x ** y (exponencial)
+```
+## Operadores lógicos
+### `!` Operador lógico NÃO (NOT)
+Se aplicado a um valor não booleano, primeiro converte em booleano e depois torna ele o contrário.
+```javascript
+let required = true;
+console.log(!required) // false	
+```
+
+### `!!` Negação dupla (converter para boolean)
+```javascript
+let x = 10;
+console.log(!!x) // true	
+```
+###  `||` Operador lógico OU (OR)
+Retorna false somente se os dois valores forem falsos, se não, retorna true;
+
+| `a`| `b` |`a || b` |
+|---|----|----|
+|true |true | true|
+|true |false | true|
+|false |true | true|
+|false |false | false|
+
+```javascript
+let result = a || b;  // Se A for true, retorna A.
+                      // Caso contrário, retorna B
+				
+```
+### `&&` Operador lógico E (AND)
+Retorna `true` somente se os dois valores forem verdadeiros
+
+| `a`| `b` |`a && b` |
+|---|----|----|
+|true |true | true|
+|true |false | false|
+|false |true | false|
+|false |false | false|
+
+```javascript
+let result = a && b; // Se A for true, retorna B.
+// Caso contrário, retorna A
+```
+### Curto-circuito
+
+O operador `&&` está em curto-circuito, ou seja, avalia o segundo valor, apenas se o primeiro não for o suficiente para determinar o valor da expressão.
+- Avalia valores da esquerda p/ direita
+- Converte em booleano, se for `false`, interrompe a validação e retorna o valor 'falso'
+- Se todos forem `true`, retorna o último valor
+- Em outras palavras, o operador `&&` retorna o primeiro valor falso ou o último verdadeiro.
+```javascript
+let a = 10;
+let b = 0;
+let c = 'a''
+let result = A && B && C; // 10 && 0 && 'a'
+                          // true
+                          // true && false -> INTERROMPE e retorna 0 
+
+let result2 = 'a' && 'b'&& 'c' // todos são true, retorna 'c' (o último)
+
+//como usar no dia a dia?
+required && validateFunction() // se required for true, vai chamar a função
+```
+
+O operador `||` está em curto-circuito, ou seja, se o primeiro valor avaliado for `true` o operador não vai avaliar o segundo valor.
+- Avalia valores da esquerda p/ direita
+- Converte em booleano, se for `true`, interrompe a validação e retorna o valor
+- Se todos forem `false`, retorna o último valor 
+- Em outras palavras, o operador `||` retorna o primeiro valor `true` ou o último valor.
+```javascript
+let a = 10;
+let b = 0;
+let c = 'a''
+let result = A || B || C; // 10 || 0 || 'a'
+                          // true -> INTERROMPE E RETORNA 10 
+```
+
+### Precedência lógica do operador
+Quando usamos vários operadores em uma mesma expressão, o JS avalia em uma ordem específica.
+
+- `!` não
+- `&&` e
+- `||` ou
+
+```javascript
+let result = (true || false) && !false; // Retorna true
+           // true && true
+           // true
+let result = true || false && !false; // Retorna true
+          // true || false && true -> primeiro o !
+          // true || false         -> segundo o &&
+          // true 
+```
+
 
 #### <a name="hoisting"></a> Hoisting
 Hoisting é o içamento de funções e variáveis para o topo do código, isso declara as variáveis e funções em memória e permite que você use uma função/variável antes mesmo de declara-la.
